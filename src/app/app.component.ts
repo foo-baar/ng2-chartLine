@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import * as pluginAnnotations from 'chartjs-plugin-annotation';
 
 @Component({
   selector: 'my-app',
@@ -14,7 +15,6 @@ export class AppComponent  {
     { data: [180, 480, 770, 90, 1000, 270, 400], label: 'Series C', yAxisID: 'y-axis-1' }
   ];
   public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     scales: {
@@ -55,7 +55,6 @@ export class AppComponent  {
       ],
     },
   };
-
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
@@ -64,7 +63,7 @@ export class AppComponent  {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
-  public lineChartPlugins = [];
+  public lineChartPlugins = [pluginAnnotations];
 
   constructor() { }
 
